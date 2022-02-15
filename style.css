@@ -35,16 +35,17 @@ body{
     
 }
 .btn{
-    background-color: rgb(229, 182, 235);
+    background-color: rgb(97, 53, 2);
     border: 1px solid #999;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 4px;
-    color: rgb(16, 16, 233);
+    color: rgb(253, 253, 255);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
     cursor: pointer;
+    transition: transform 0.25s;
 }
 
 .btn:hover{
