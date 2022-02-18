@@ -42,14 +42,14 @@ btns.forEach(function (button) {
             currentNum = ''
             operator = button.innerText.trim()
             display.innerText += " " + button.innerText + " ";
-            console.log('test')
+
             return true
         }
         //If = is pressed... 
         //
         if (button.innerText == '=') {
             secondNum = currentNum;
-            currentNum = ''
+            // currentNum = ''
             //Depending on the operator, the variable result will be equal to firstNum computed with the secondNum. 
             switch (operator) {
                 case '/':
@@ -67,27 +67,58 @@ btns.forEach(function (button) {
                     break;
 
             }
+            result = result.toString()
             display.innerText = result;
-            return true
+            currentNum = result;
+            firstNum = ''
+            secondNum = ''
+            operator = ''
+            return true;
         }
         if (button.innerText == 'DEL') {
-            if (display.innerText != '0') {
-                currentNum = currentNum.slice(0, -1)
-                display.innerText = display.innerText.slice(0, -1)
-                if (currentNum == '') {
-                    if (operator) {
-                        operator = '';
+            //Do something only if the display's content is different from 0
+            if (display.innerText !== '0') {
+                //Is there an operator? is the op different from zero?
+                if (operator) {
+                    //if there is an operator, is It the last digit on the display??    
+                    if (display.innerText.slice(-1) == operator) {
+                        //So Delete the operator and de firstNum
+                        operator = ''
+                        display.innerText = display.innerText.slice(0, -1);
                         currentNum = display.innerText;
                         firstNum = ''
+                        return true;
+                        //end of 4th if stmnt
                     } else {
-                        display.innerText = '0';
-                        currentNum = '0';
+                        //otherwise, if the operator is not the last digit
+                        // Will keep and subtract the last digt from our variables
+                        display.innerText = display.innerText.slice(0, -1);
+                        currentNum = currentNum.slice(0, -1);
+                        firstNum = firstNum.slice(0, -1)
+
+                        return true;
+                        //end of else statement
                     }
+
+
+                    //end of operator test(3rd if)    
                 }
+                //if theres no operator...It means there is no firstNum
+                display.innerText = display.innerText.slice(0, -1);
+                currentNum = display.innerText
+                //if current num has become an empty string, then set the display content
+                //and the current number to '0'... 
+                if (currentNum == '') {
+                    currentNum = '0'
+                    display.innerText = '0'
+                    return true;
+                    //end of fith if stmnt. the one that tests if the current num is an empty strng     
+                }
+
+                //end of second if stmnt    
             }
-
-
-            return true;
+            //the end of the DELS first if statement
+            return true
         }
 
 
