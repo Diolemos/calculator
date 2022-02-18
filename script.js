@@ -74,7 +74,7 @@ btns.forEach(function (button) {
             if (display.innerText != '0') {
                 currentNum = currentNum.slice(0, -1)
                 display.innerText = display.innerText.slice(0, -1)
-                if (currentNum == '') {
+                if (currentNum == '' && firstNum == '') {
                     currentNum = '0';
                     display.innerText = '0';
                 }
