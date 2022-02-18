@@ -45,14 +45,27 @@ btns.forEach(function (button) {
             console.log('test')
             return true
         }
+        //If = is pressed... 
+        //
         if (button.innerText == '=') {
             secondNum = currentNum;
             currentNum = ''
-
+            //Depending on the operator, the variable result will be equal to firstNum computed with the secondNum. 
             switch (operator) {
                 case '/':
                     result = +firstNum / +secondNum
                     break;
+                //this x has to be lower case since I used .toLowerCase previously 
+                case 'x':
+                    result = +firstNum * +secondNum
+                    break;
+                case '-':
+                    result = +firstNum - +secondNum
+                    break;
+                case '+':
+                    result = +firstNum + +secondNum
+                    break;
+
             }
             display.innerText = result;
             return true
