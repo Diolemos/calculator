@@ -70,6 +70,17 @@ btns.forEach(function (button) {
             display.innerText = result;
             return true
         }
+        if (button.innerText == 'DEL') {
+            if (display.innerText != '0') {
+                currentNum = currentNum.slice(0, -1)
+                display.innerText = display.innerText.slice(0, -1)
+                if (currentNum == '') {
+                    currentNum = '0';
+                    display.innerText = '0';
+                }
+                return true;
+            }
+        }
 
         let num = button.innerText;
         currentNum += num;
@@ -82,6 +93,8 @@ btns.forEach(function (button) {
 
             return true
         }
+
+
 
     })
 
