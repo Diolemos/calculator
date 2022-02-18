@@ -74,13 +74,22 @@ btns.forEach(function (button) {
             if (display.innerText != '0') {
                 currentNum = currentNum.slice(0, -1)
                 display.innerText = display.innerText.slice(0, -1)
-                if (currentNum == '' && firstNum == '') {
-                    currentNum = '0';
-                    display.innerText = '0';
+                if (currentNum == '') {
+                    if (operator) {
+                        operator = '';
+                        currentNum = display.innerText;
+                        firstNum = ''
+                    } else {
+                        display.innerText = '0';
+                        currentNum = '0';
+                    }
                 }
-                return true;
             }
+
+
+            return true;
         }
+
 
         let num = button.innerText;
         currentNum += num;
