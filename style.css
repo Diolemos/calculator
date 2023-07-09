@@ -3,8 +3,8 @@
 }
 
 body{
-    background: rgb(6,31,65);
-background: linear-gradient(79deg, rgba(6,31,65,1) 0%, rgba(81,122,191,1) 49%, rgba(5,42,108,1) 100%);
+    background: rgb(155,175,203);
+    background: radial-gradient(circle, rgba(155,175,203,1) 0%, rgba(5,42,108,1) 100%);
     display: flex;
     min-height: 100vh;
     align-items: center;
@@ -16,27 +16,29 @@ background: linear-gradient(79deg, rgba(6,31,65,1) 0%, rgba(81,122,191,1) 49%, r
     display: grid;
     width: 320px;
     height: 520px;
-    background-color: #fff;
+    background-color: #0b0b2e;
     grid-template-rows: repeat(6,auto);
     grid-template-columns: repeat(4, auto);
     text-align: center;
-    padding: 6px;
+    padding: 16px 6px;
+    border-radius: 12px;
     border: 1px solid #999;
-    box-shadow: -10px 5px 15px black;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.507);
 }
 .display{
     grid-column-start: 1;
     grid-column-end: -1;
-    background-color: rgb(165, 129, 63);
-    min-height: 70px;
-    margin: 1px 2px 0 1px;
+    background-color: rgb(255, 255, 255);
+    
+    
+    margin-bottom: 6px;
     /* background-image: url('images/blackscreen.png'); */
     background-position: center;
     border-style: outset;
     border-width: 3px;
     border-color: #999;
     font-family: 'Roboto Serif', sans-serif;
-    color: rgb(244, 245, 241);
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     text-align: right;
     overflow: hidden;
@@ -44,8 +46,8 @@ background: linear-gradient(79deg, rgba(6,31,65,1) 0%, rgba(81,122,191,1) 49%, r
     
 }
 .btn{
-    background-color: rgb(97, 53, 2);
-    border: 1px solid #999;
+    background-color: rgb(2, 54, 97);
+    border: 1px solid #273064;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +58,7 @@ background: linear-gradient(79deg, rgba(6,31,65,1) 0%, rgba(81,122,191,1) 49%, r
     cursor: pointer;
     transition: transform 0.25s;
     border-radius: 5px;
-    box-shadow: 0 5px 0 #8d7b6f, inset 0 2px 0 #6b5d54;
+    box-shadow: 0 5px 0 #1f2652, inset 0 2px 0 #6b5d54;
 }
 .btn:active{
     position: relative;
