@@ -3,7 +3,8 @@
 }
 
 body{
-    background-image: url('images/Artboard.png');
+    background: rgb(6,31,65);
+background: linear-gradient(79deg, rgba(6,31,65,1) 0%, rgba(81,122,191,1) 49%, rgba(5,42,108,1) 100%);
     display: flex;
     min-height: 100vh;
     align-items: center;
