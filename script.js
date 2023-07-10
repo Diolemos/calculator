@@ -6,10 +6,11 @@ display.innerText = '0'
 
 let buttons = document.querySelectorAll('.btn')
 
-let operator = ''
+let operatorText = ''
+let operatorMethod = ''
 let firstOperand = ''
 let secondOperand = ''
-let currentNumber = ''
+
 
 
 buttons.forEach( button=> {
@@ -20,9 +21,69 @@ buttons.forEach( button=> {
             return
         }
         if(event.target.classList.contains('number')){
-            currentNumber = currentNumber + event.target.textContent.trim()
-            display.innerText = `${currentNumber} ${operator?operator:''} ${secondOperand?secondOperand:''}`
+            operatorText?
+            secondOperand  += event.target.textContent.trim():
+            firstOperand += firstOperand + event.target.textContent.trim()
+           
+            updateDisplay()
+            return
         }
+        if(event.target.classList.contains('operator')){
+           if(!operatorText){
+            setCalculatorMethod(event.target.value)
+            operatorText = event.target.value
+           }
+            
+           
+
+           if(secondOperand){
+            
+            firstOperand =  operatorMethod(+firstOperand,+secondOperand)
+            secondOperand = ''
+            setCalculatorMethod(event.target.value)
+            operatorText = event.target.value
+            updateDisplay()  
+          }
+         else{
+          operatorText = event.target.value
+
+          updateDisplay()
+         } 
+         
+        }
+            
+           
+          if(event.target.textContent.trim()=='DEL'){
+
+            if(operatorText){
+                if(secondOperand.length<1){
+                    secondOperand = '';
+                    operatorText=''
+                    operatorMethod =''
+                    updateDisplay()
+                    return
+                }
+                secondOperand = secondOperand.slice(0,-1)
+                updateDisplay()
+            }else{
+
+                if(firstOperand.length<=1){
+                    resetCalculator()
+                }else{
+                    
+                    firstOperand = firstOperand.toString().slice(0,-1)
+                    updateDisplay()
+                    return
+                }
+            }
+            
+            
+
+          }  
+            
+            
+            
+         
     })
 })
     
@@ -30,8 +91,26 @@ buttons.forEach( button=> {
 const resetCalculator = ()=>{
     firstOperand = ''
     secondOperand = ''
-    operator = ''
-    currentNumber = ''
+    operatorText = ''
+    operatorMethod = ''
     display.innerText = '0'
 
 }
+
+const updateDisplay = ()=>  display.innerText = `${firstOperand} ${operatorText?operatorText:''} ${secondOperand?secondOperand:''}`
+
+const setCalculatorMethod = (operator)=>  {
+    switch(operator){
+    case '*':
+        operatorMethod = calculator.mul
+        break;
+    case '-':
+        operatorMethod = calculator.sub
+        break;
+    case '+':
+        operatorMethod = calculator.add
+        break;
+    case '/':
+        operatorMethod = calculator.div   
+        break;         
+}}
