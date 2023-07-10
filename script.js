@@ -23,7 +23,7 @@ buttons.forEach( button=> {
         if(event.target.classList.contains('number')){
             operatorText?
             secondOperand  += event.target.textContent.trim():
-            firstOperand += firstOperand + event.target.textContent.trim()
+            firstOperand += event.target.textContent.trim()
            
             updateDisplay()
             return
@@ -80,6 +80,17 @@ buttons.forEach( button=> {
             
 
           }  
+
+          if(event.target.classList.contains('enter')){
+            
+            if(firstOperand && operatorText && secondOperand){
+              firstOperand= operatorMethod(+firstOperand,+secondOperand)
+              operatorText = ''
+              operatorMethod = ''
+              secondOperand = ''
+              updateDisplay()
+            }
+          }
             
             
             
