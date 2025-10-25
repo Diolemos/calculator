@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 a{
-    color: #ffffff;
+    color: #d4d4d4;
     text-decoration: none;
 }
 
@@ -45,10 +45,11 @@ body{
     border-style: outset;
     border-width: 3px;
     border-color: var(--border-color);
-    font-family: 'Roboto Serif', sans-serif;
+     font-family: "VT323", monospace;
     color: rgb(0, 0, 0);
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: right;
+    line-height: 100PX; 
     overflow: hidden;
     box-shadow: inset 0 0 5px rgba(0,0, 0, 0.5), inset 0 0 8px rgba(26, 25, 25, 0.5);
     
