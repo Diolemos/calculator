@@ -10,12 +10,30 @@ function handleButtonClick(e) {
     state.current += value;
     view.updateDisplay(`${state.previous ||''} ${state.operator ||''} ${state.current} `);
   } 
-  else if (['+', '-', '*', '/'].includes(value)) {
+else if (['+', '-', '*', '/'].includes(value)) {
+  // If there’s already a previous value, operator, and current input
+  if (state.previous !== '' && state.operator !== null && state.current !== '') {
+    // Calculate previous operation
+    const result = calculator.calculate(
+      parseFloat(state.previous),
+      parseFloat(state.current),
+      state.operator
+    );
+
+    // Update state
+    state.previous = String(result);
+    state.operator = value;
+    state.current = '';
+  } else {
+    // Normal case: no previous or current input
     state.previous = state.current !== '' ? state.current : '0';
     state.operator = value;
     state.current = '';
-    view.updateDisplay(`${state.previous} ${state.operator} ${state.current} `)
-  } 
+  }
+
+  // Update display to show current operation
+  view.updateDisplay(`${state.previous} ${state.operator} ${state.current}`);
+}
   else if (value === '=') {
     const a = parseFloat(state.previous);
     const b = parseFloat(state.current);
