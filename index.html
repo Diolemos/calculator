@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" type="module" defer></script>
+    <script src="script/script.js" type="module" defer></script>
     <!-- font Awesome CDN -->
     <script src="https://kit.fontawesome.com/87ec267a74.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
@@ -15,35 +15,45 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
+        <!-- VT323 font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Calculator</title>
 </head>
 
 <body>
     <div class="calculator">
-        <button class="display">123456</button>
-        <button value="c" class="btn gray">C</button>
-        <button class="btn gray operator" value="/">/</button>
-        <button value="*" class="btn gray operator">x</button>
-        <button class="btn gray">DEL</button>
-        <button class="btn number">7</button>
-        <button class="btn number">8</button>
-        <button class="btn number">9</button>
-        <button class="btn gray operator" value="+">+</button>
-        <button class="btn number">4</button>
-        <button class="btn number">5</button>
-        <button class="btn number">6</button>
-        <button class="btn gray operator" value="=">-</button>
-        <button class="btn number">1</button>
-        <button class="btn number">2</button>
-        <button class="btn number">3</button>
-        <button class="btn enter ">=</button>
-        <button class=" btn span-two number">0</button>
-        <button class="btn " value=".">.</button>
+  <!-- Display -->
+  <div class="display">0</div>
 
+  <!-- Top row -->
+  <button class="btn gray" data-type="clear" data-value="C">C</button>
+  <button class="btn gray" data-type="delete" data-value="del">DEL</button>
+  <button class="btn gray operator" data-type="operator" data-value="/">÷</button>
+  <button class="btn gray operator" data-type="operator" data-value="*">×</button>
 
-    </div>
+  <!-- Next rows -->
+  <button class="btn number" data-type="number" data-value="7">7</button>
+  <button class="btn number" data-type="number" data-value="8">8</button>
+  <button class="btn number" data-type="number" data-value="9">9</button>
+  <button class="btn gray operator" data-type="operator" data-value="-">−</button>
 
-    <footer>Dio Lemos <i class="fa-brands fa-github"></i> </footer>
+  <button class="btn number" data-type="number" data-value="4">4</button>
+  <button class="btn number" data-type="number" data-value="5">5</button>
+  <button class="btn number" data-type="number" data-value="6">6</button>
+  <button class="btn gray operator" data-type="operator" data-value="+">+</button>
+
+  <button class="btn number" data-type="number" data-value="1">1</button>
+  <button class="btn number" data-type="number" data-value="2">2</button>
+  <button class="btn number" data-type="number" data-value="3">3</button>
+  <button class="btn enter" data-type="equal" data-value="=">=</button>
+
+  <button class="btn number span-two" data-type="number" data-value="0">0</button>
+  <button class="btn" data-type="number" data-value=".">.</button>
+</div>
+
+    <footer>Pedro Diógenes <a href="https://github.com/Diolemos"> <i class="fa-brands fa-github"></i></a>  </footer>
 </body>
 
 </html>
